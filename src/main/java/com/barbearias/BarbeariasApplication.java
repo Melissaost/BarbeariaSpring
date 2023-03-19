@@ -1,0 +1,13 @@
+package com.barbearias;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BarbeariasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BarbeariasApplication.class, args);
+	}
+
+}
