@@ -25,9 +25,9 @@ public class BarbeariasController {
 
     @GetMapping("/{id}")
     public ResponseEntity<List<BarbeariaDTO>> get(@PathVariable("id") Long id){
-        List<BarbeariaDTO> carro = service.getBarbeariaById(id);
+        List<BarbeariaDTO> barbearia = service.getBarbeariaById(id);
 
-        return ResponseEntity.ok(carro);
+        return ResponseEntity.ok(barbearia);
     }
 
     @GetMapping("/bairro/{bairro}")
@@ -42,9 +42,9 @@ public class BarbeariasController {
     @PostMapping
     public ResponseEntity<BarbeariaDTO> post(@RequestBody Barbearia barbearia) {
 
-        BarbeariaDTO c = service.insert(barbearia);
-        return c != null ?
-                ResponseEntity.created(getUri(c.getId())).build() :
+        BarbeariaDTO b = service.insert(barbearia);
+        return b != null ?
+                ResponseEntity.created(getUri(b.getId())).build() :
                 ResponseEntity.badRequest().build();
     }
 
