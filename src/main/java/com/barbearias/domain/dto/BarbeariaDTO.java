@@ -9,6 +9,7 @@ public class BarbeariaDTO {
     private Long id;
     private String nome;
     private String rua;
+    private String bairro;
 
     public static BarbeariaDTO create(Barbearia b){
         ModelMapper modelMapper = new ModelMapper();
