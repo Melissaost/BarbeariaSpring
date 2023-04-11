@@ -1,0 +1,1 @@
+alter table barbearias add ativo tinyint;

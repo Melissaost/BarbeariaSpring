@@ -1,4 +1,4 @@
-package com.barbearias.domain.dto;
+package com.barbearias.domain.usuario.dto;
 
 import com.barbearias.domain.usuario.Usuario;
 

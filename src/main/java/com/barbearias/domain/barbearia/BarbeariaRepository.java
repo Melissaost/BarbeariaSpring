@@ -1,4 +1,4 @@
-package com.barbearias.domain;
+package com.barbearias.domain.barbearia;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

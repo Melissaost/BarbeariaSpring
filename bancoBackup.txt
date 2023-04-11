@@ -1,3 +1,28 @@
 insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values ("No Fio do Bigode","Rio de Janeiro","Campo Grande","23548-800","25","Velha Olanda","public/images/barbearias/barbearias_4.jpg","(21)25573300");
 insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values ("Barba Negra","Rio de Janeiro","Realengo","24808-350","15","Av. Rosa","public/images/barbearias/barbearias_5.jpg","(21)25575588");
 insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values ("Velho Tranquilo","Rio de Janeiro","Campo Grande","23548-400","105","Diorama","public/images/barbearias/barbearias_6.jpg","(21)25572306");
+
+
+
+{
+    "nome": "No Fio do Bigode",
+    "cidade":"Rio de Janeiro",
+    "bairro": "Campo Grande" ,
+    "cep": "23548800",
+    "numero": "25",
+    "rua": "Velha Olanda",
+    "imagem":"public/images/barbearias/barbearias_4.jpg",
+    "telefone": "(21)25573300"
+}
+
+
+{
+    "nome": "Barba Negra",
+    "cidade":"Rio de Janeiro",
+    "bairro": "Realengo" ,
+    "cep": "24808350",
+    "numero": "15",
+    "rua": "Av. Rosa",
+    "imagem":"public/images/barbearias/barbearias_5.jpg",
+    "telefone": "(21)25575588"
+}
