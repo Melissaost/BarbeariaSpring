@@ -26,3 +26,30 @@ insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values 
     "imagem":"public/images/barbearias/barbearias_5.jpg",
     "telefone": "(21)25575588"
 }
+
+
+
+{
+    "nome": "Maria Clara",
+    "login": "mclara@barbearia.com" ,
+    "senha": "123456",
+    "telefone": "(21)25146533",
+    "cpf": "11111155885"
+}
+
+{
+    "nome": "Gilberto Menezes",
+    "login": "gilberto@barbearia.com" ,
+    "senha": "123456",
+    "telefone": "(21)25144700",
+    "cpf": "11111155887"
+}
+
+
+{
+    "nome": "Rinaldo Matos",
+    "login": "rinaldo@barbearia.com" ,
+    "senha": "123456",
+    "telefone": "(21)25144679",
+    "cpf": "22235698741"
+}
