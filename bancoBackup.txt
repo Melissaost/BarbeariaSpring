@@ -27,6 +27,17 @@ insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values 
     "telefone": "(21)25575588"
 }
 
+{
+    "nome": "Velho Tranquilo",
+    "cidade":"Rio de Janeiro",
+    "bairro": "Campo Grande" ,
+    "cep": "23548400",
+    "numero": "105",
+    "rua": "Diorama",
+    "imagem":"public/images/barbearias/barbearias_6.jpg",
+    "telefone": "(21)25572306"
+}
+
 
 
 {
@@ -52,4 +63,11 @@ insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values 
     "senha": "123456",
     "telefone": "(21)25144679",
     "cpf": "22235698741"
+}
+
+agendamento
+{
+    "idUsuario": 1,
+    "idBarbearia": 1,
+    "data": "2023-04-20T12:00"
 }
