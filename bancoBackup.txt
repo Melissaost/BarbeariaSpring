@@ -27,6 +27,17 @@ insert into barbearia(nome,cidade,bairro,cep,numero,rua,imagem,telefone) values 
     "telefone": "(21)25575588"
 }
 
+{
+    "nome": "Velho Tranquilo",
+    "cidade":"Rio de Janeiro",
+    "bairro": "Campo Grande" ,
+    "cep": "23548400",
+    "numero": "105",
+    "rua": "Diorama",
+    "imagem":"public/images/barbearias/barbearias_6.jpg",
+    "telefone": "(21)25572306"
+}
+
 
 
 {

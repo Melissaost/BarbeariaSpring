@@ -49,10 +49,10 @@ public class Agendamento {
 
     public void cancelar(DadosCancelamento dados) {
         if(!agendaRepository.existsById(dados.idAgendamento())){
-            throw new ValidacaoException("Id da consulta informado não existe. ");
+            throw new ValidacaoException("Id do agendamento informado não existe. ");
         }
 
-        var consulta = agendaRepository.getReferenceById(dados.idAgendamento());
-        consulta.cancelar(dados.motivo());
+        var agenda = agendaRepository.getReferenceById(dados.idAgendamento());
+        agenda.cancelar(dados.motivo());
     }
 }
