@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -23,6 +24,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
 
+    @Autowired
+    private PasswordEncoder encoder;
+
     @GetMapping()
     public ResponseEntity detalhar() {
         var usuario = repository.findAll().stream().map(UsuarioDTO::new);
@@ -33,6 +37,8 @@ public class UsuarioController {
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroUsuario dados, UriComponentsBuilder uriBuider){
         var usuario = new Usuario(dados);
+        usuario.setSenha(encoder.encode(usuario.getSenha()));
+
         repository.save(usuario);
 
         var uri = uriBuider.path("/api/v1/barbearias/{id}").buildAndExpand(usuario.getId()).toUri();

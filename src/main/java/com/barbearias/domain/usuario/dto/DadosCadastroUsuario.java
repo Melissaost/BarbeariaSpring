@@ -1,5 +1,6 @@
 package com.barbearias.domain.usuario.dto;
 
+import com.barbearias.domain.usuario.Usuario;
 import jakarta.validation.constraints.NotBlank;
 
 public record DadosCadastroUsuario(
@@ -13,4 +14,5 @@ public record DadosCadastroUsuario(
         String login,
         @NotBlank
         String senha) {
+
 }
