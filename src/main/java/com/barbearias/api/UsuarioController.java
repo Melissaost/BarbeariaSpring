@@ -7,6 +7,7 @@ import com.barbearias.domain.usuario.dto.DadosAtualizacaoUsuario;
 import com.barbearias.domain.usuario.dto.DadosCadastroUsuario;
 import com.barbearias.domain.usuario.dto.UsuarioDTO;
 import com.barbearias.domain.usuario.UsuarioRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 
     @Autowired

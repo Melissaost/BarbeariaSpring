@@ -4,6 +4,7 @@ import com.barbearias.domain.agenda.AgendaRepository;
 import com.barbearias.domain.agenda.Agendamento;
 import com.barbearias.domain.agenda.DadosAgendamento;
 import com.barbearias.domain.agenda.DadosCancelamento;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/agendamento")
+@SecurityRequirement(name = "bearer-key")
 public class AgendamentoController {
 
     @Autowired

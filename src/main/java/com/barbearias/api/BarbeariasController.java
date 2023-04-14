@@ -6,6 +6,7 @@ import com.barbearias.domain.barbearia.dto.BarbeariaDTO;
 import com.barbearias.domain.barbearia.dto.BarbeariaDetalhada;
 import com.barbearias.domain.barbearia.dto.DadosAtualizacaoBarbearia;
 import com.barbearias.domain.barbearia.dto.DadosCadastroBarbearia;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/api/v1/barbearias")
+@SecurityRequirement(name = "bearer-key")
 public class BarbeariasController {
     @Autowired
     private BarbeariaRepository repository;
