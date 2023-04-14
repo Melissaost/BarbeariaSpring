@@ -2,8 +2,9 @@ package com.barbearias.api;
 
 import com.barbearias.domain.barbearia.Barbearia;
 import com.barbearias.domain.barbearia.BarbeariaRepository;
-import com.barbearias.domain.barbearia.dto.BarbeariaDTO;
-import com.barbearias.domain.barbearia.dto.BarbeariaDetalhada;
+import com.barbearias.domain.barbearia.BarbeariaService;
+import com.barbearias.domain.barbearia.dto.DadosBarbearia;
+import com.barbearias.domain.barbearia.dto.DadosBarbeariaDetalhada;
 import com.barbearias.domain.barbearia.dto.DadosAtualizacaoBarbearia;
 import com.barbearias.domain.barbearia.dto.DadosCadastroBarbearia;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -20,10 +21,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class BarbeariasController {
     @Autowired
     private BarbeariaRepository repository;
+    @Autowired
+    private BarbeariaService service;
+
 
     @GetMapping()
     public ResponseEntity detalhar() {
-        var barbearia = repository.findAllByAtivoTrue().stream().map(BarbeariaDTO::new);
+        var barbearia = repository.findAllByAtivoTrue().stream().map(DadosBarbearia::new);
         return ResponseEntity.ok(barbearia);
     }
 
@@ -35,7 +39,7 @@ public class BarbeariasController {
 
         var uri = uriBuider.path("/api/v1/barbearias/{id}").buildAndExpand(barbearia.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(new BarbeariaDetalhada(barbearia));
+        return ResponseEntity.created(uri).body(new DadosBarbeariaDetalhada(barbearia));
     }
 
 
@@ -44,7 +48,7 @@ public class BarbeariasController {
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoBarbearia dados){
         var barbearia = repository.getReferenceById(dados.id());
         barbearia.atualizarInformacoes(dados);
-        return ResponseEntity.ok(new BarbeariaDetalhada(barbearia));
+        return ResponseEntity.ok(new DadosBarbeariaDetalhada(barbearia));
     }
 
     @DeleteMapping("/{id}")
@@ -55,10 +59,17 @@ public class BarbeariasController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/reativar/{id}")
+    @Transactional
+    public ResponseEntity reativar(@PathVariable Long id){
+        var barbearia = service.reativar(id);
+        return ResponseEntity.ok(barbearia);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id){
         var barbearia = repository.getReferenceById(id);
-        return ResponseEntity.ok(new BarbeariaDetalhada(barbearia));
+        return ResponseEntity.ok(new DadosBarbeariaDetalhada(barbearia));
     }
 
 

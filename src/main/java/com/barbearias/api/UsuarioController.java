@@ -1,11 +1,9 @@
 package com.barbearias.api;
 
-import com.barbearias.domain.barbearia.dto.BarbeariaDetalhada;
-import com.barbearias.domain.barbearia.dto.DadosAtualizacaoBarbearia;
 import com.barbearias.domain.usuario.Usuario;
 import com.barbearias.domain.usuario.dto.DadosAtualizacaoUsuario;
 import com.barbearias.domain.usuario.dto.DadosCadastroUsuario;
-import com.barbearias.domain.usuario.dto.UsuarioDTO;
+import com.barbearias.domain.usuario.dto.DadosUsuario;
 import com.barbearias.domain.usuario.UsuarioRepository;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
@@ -29,7 +27,7 @@ public class UsuarioController {
 
     @GetMapping()
     public ResponseEntity detalhar() {
-        var usuario = repository.findAll().stream().map(UsuarioDTO::new);
+        var usuario = repository.findAll().stream().map(DadosUsuario::new);
         return ResponseEntity.ok(usuario);
     }
 
@@ -43,7 +41,7 @@ public class UsuarioController {
 
         var uri = uriBuider.path("/api/v1/barbearias/{id}").buildAndExpand(usuario.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(new UsuarioDTO(usuario));
+        return ResponseEntity.created(uri).body(new DadosUsuario(usuario));
     }
 
 
@@ -52,7 +50,7 @@ public class UsuarioController {
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoUsuario dados){
         var usuario = repository.getReferenceById(dados.id());
         usuario.atualizarInformacoes(dados);
-        return ResponseEntity.ok(new UsuarioDTO(usuario));
+        return ResponseEntity.ok(new DadosUsuario(usuario));
     }
 
     @DeleteMapping("/{id}")
@@ -65,7 +63,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id){
         var usuario = repository.getReferenceById(id);
-        return ResponseEntity.ok(new UsuarioDTO(usuario));
+        return ResponseEntity.ok(new DadosUsuario(usuario));
     }
 
 }

@@ -2,7 +2,7 @@ package com.barbearias.domain.barbearia.dto;
 
 import com.barbearias.domain.barbearia.Barbearia;
 
-public record BarbeariaDetalhada(
+public record DadosBarbeariaDetalhada(
         Long id,
         String nome,
         String telefone,
@@ -12,7 +12,7 @@ public record BarbeariaDetalhada(
         String rua,
         String numero) {
 
-    public BarbeariaDetalhada(Barbearia barbearia) {
+    public DadosBarbeariaDetalhada(Barbearia barbearia) {
         this(
                 barbearia.getId(),
                 barbearia.getNome(),

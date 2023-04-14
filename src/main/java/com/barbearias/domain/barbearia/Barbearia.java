@@ -54,4 +54,8 @@ public class Barbearia {
         this.ativo = false;
     }
 
+    public void reativar() {
+        this.ativo = true;
+    }
+
 }
