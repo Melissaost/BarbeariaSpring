@@ -27,6 +27,7 @@ public class Usuario implements UserDetails{
     private String nome;
     private String telefone;
     private String cpf;
+    private Boolean ativo;
 
 
     @Override
@@ -66,6 +67,7 @@ public class Usuario implements UserDetails{
 
 
     public Usuario(DadosCadastroUsuario dados) {
+        this.ativo = true;
         this.login = dados.login();
         this.nome = dados.nome();
         this.telefone = dados.telefone();
@@ -85,5 +87,8 @@ public class Usuario implements UserDetails{
         }
     }
 
+    public void excluir() {
+        this.ativo = false;
+    }
 
 }

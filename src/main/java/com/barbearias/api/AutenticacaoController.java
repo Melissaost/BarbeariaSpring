@@ -1,8 +1,10 @@
 package com.barbearias.api;
 
+import com.barbearias.domain.ValidacaoException;
 import com.barbearias.domain.infra.security.DadosTokenJWT;
 import com.barbearias.domain.infra.security.TokenService;
 import com.barbearias.domain.usuario.Usuario;
+import com.barbearias.domain.usuario.UsuarioRepository;
 import com.barbearias.domain.usuario.dto.DadosAutenticacao;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,15 @@ public class AutenticacaoController {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private UsuarioRepository repository;
+
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
+        if(!repository.findAtivoByLogin(dados.login())){
+            throw new ValidacaoException("Usuário não está ativo. ");
+        }
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var authentication = manager.authenticate(authenticationToken);
 

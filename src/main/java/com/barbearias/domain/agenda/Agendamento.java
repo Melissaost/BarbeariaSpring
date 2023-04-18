@@ -29,6 +29,10 @@ public class Agendamento {
             throw new ValidacaoException("Id do usuario não existe. ");
         }
 
+        if(!usuarioRepository.findAtivoById(dados.idUsuario())){
+            throw new ValidacaoException("Usuário não está ativo. ");
+        }
+
         if(dados.idBarbearia() != null && !barbeariaRepository.existsById(dados.idBarbearia())){
             throw new ValidacaoException("Id da barbearia não existe. ");
         }

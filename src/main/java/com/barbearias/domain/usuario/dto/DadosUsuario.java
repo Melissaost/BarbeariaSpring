@@ -1,5 +1,6 @@
 package com.barbearias.domain.usuario.dto;
 
+import com.barbearias.domain.barbearia.Barbearia;
 import com.barbearias.domain.usuario.Usuario;
 
 public record DadosUsuario(Long id, String nome, String telefone, String login) {

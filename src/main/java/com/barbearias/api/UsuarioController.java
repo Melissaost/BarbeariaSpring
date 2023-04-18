@@ -27,7 +27,7 @@ public class UsuarioController {
 
     @GetMapping()
     public ResponseEntity detalhar() {
-        var usuario = repository.findAll().stream().map(DadosUsuario::new);
+        var usuario = repository.findAllByAtivoTrue().stream().map(DadosUsuario::new);
         return ResponseEntity.ok(usuario);
     }
 
@@ -56,7 +56,8 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id){
-        repository.deleteById(id);
+        var usuario = repository.getReferenceById(id);
+        usuario.excluir();
         return ResponseEntity.noContent().build();
     }
 
